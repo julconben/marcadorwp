@@ -23,7 +23,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/ref', function(req, res) {
-	res.render('ref');
+  res.render('ref');
 });
 
 io.sockets.on('connection', function (socket) {
