@@ -2,6 +2,7 @@ $(document).ready(function() {
     
     var socket = io.connect('http://' + window.location.host);
     
+    
     /*socket.on('change-home-team-score', function (data) {
         alert('click!');
         alert(data);
@@ -63,7 +64,7 @@ $(document).ready(function() {
     }); 
 
     socket.on('playclock-reset', function (data) {
-        //$('#playclock-timer').html(data.value);
+        var a = $('#playclock-timer').html(data.value);
         if (data.mode == 'play') {
             if (PlayClock.running) {
                 PlayClock.pause();
@@ -83,7 +84,8 @@ $(document).ready(function() {
                 GameClock.start();    
             }
         } else if (data.mode == 'restart') {
-            GameClock.restart(data.min, data.sec);
+            //self.totalSeconds = parseInt(data.min) * 60 + parseInt(data.sec);
+            GameClock.restart(data.min, data.sec, data.seconds);
         } else if (data.mode == 'add-min') {
             GameClock.addMin();
         } else if (data.mode == 'subtract-min') {
@@ -191,12 +193,16 @@ $(document).ready(function() {
             delete this.interval;
         },
 
-        restart: function(min, sec) {
+        restart: function(min, sec, seconds) {
             $("#gameclock-min").text(min);
             $("#gameclock-sec").text(sec);
             clearInterval(this.interval);
             delete this.interval;
+
             this.totalSeconds = 480;
+            this.totalSeconds = seconds;
+        
+
             this.pause();
         },
 
@@ -261,7 +267,7 @@ $(document).ready(function() {
         socket.emit('update-gameclock', { mode: 'play' });
     });
     $('#timer').dblclick(function(){
-        socket.emit('update-gameclock', { mode: 'restart', min: 8, sec: '00' });
+        socket.emit('update-gameclock', { mode: 'restart', min: 8, sec: '00', seconds: 480});
     });
 
     document.body.addEventListener('keydown', function (e) {
@@ -283,16 +289,35 @@ $(document).ready(function() {
             socket.emit('update-gameclock', { mode: 'play' });
         }else if (key == 82) {
             //restart tiempo (R)
-            socket.emit('update-gameclock', { mode: 'restart', min: 8, sec: '00' });
+            socket.emit('update-gameclock', { mode: 'restart', min: 8, sec: '00', seconds: 480});
         }else if(key == 83){
             //cambiar tiempo cuarto arriba (S)
             socket.emit('update-quarter', { direction: 'up' });
         }else if(key == 68){
             //cambiar tiempo cuarto(D)
             socket.emit('update-quarter', { direction: 'down' });
+        }else if(key == 84){
+             //para setear el tiempo (T)
+            var txt;
+            var input = prompt("Introduzca el tiempo:", "8:00");
+
+            if(input == null || input == "" || !input.match(/^([01]?[0-9]|2[0-3]):[0-5][0-9]/)){
+                alert("Error en el formato de tiempo. Por favor rellenar con el formato Minutos:Segundos");
+            }else{
+                var split = input.split(":");
+                if(split[0].length > 2 || split[1].length > 2 ){
+                    alert("Error en el formato de tiempo. Por favor rellenar con el formato Minutos:Segundos");  
+                }else{
+                    var segundos = parseInt(split[0]) * 60 + parseInt(split[1]);
+                    socket.emit('update-gameclock', { mode: 'restart', min: split[0], sec: split[1], seconds: segundos });
+                }
+            }
+
+
+        
         }
-        //
     });
 
+    
       
 });
