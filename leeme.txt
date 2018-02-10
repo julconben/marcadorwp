@@ -1,0 +1,33 @@
+——Instrucciones——
+
+***********
+***CRONO***
+***********
+
+Tecla t: cambiar tiempo del marcador (Formato mm:ss)
+Tecla r: vuelta a 8 minutos
+clic: start/stop
+espacio: start/stop
+
+
+***********
+***GOLES***
+***********
+Tecla L: gol local
+Tecla k: restar gol local
+Tecla V: gol visitante
+Tecla B: restar gol visitante
+
+
+*************
+***CUARTOS***
+*************
+clic: añade un cuarto (de 1 a 4)
+
+
+***************
+***T.MUERTOS***
+***************
+clic (sobre TM): resta un tiempo muerto (de 4 a 1)
+
+

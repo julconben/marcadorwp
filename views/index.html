@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Scoreboard</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <script src="/socket.io/socket.io.js"></script><script src="/jquery.min.js"></script><script src="/script.js"></script>
+      <link href="/style.css" rel="stylesheet" type="text/css">
+   </head>
+   <body>
+      <div id="container">
+         <div class="first-row">
+            <div id="playclock" class="box">                 </div>
+            <div id="timer" class="box">
+               <div class="inner-box">
+                  <div id="gameclock-min" class="number">8</div>
+                  <span>:</span>
+                  <div id="gameclock-sec" class="number">00</div>
+               </div>
+            </div>
+            <div id="quarter" class="box">
+               <div class="number"><span id="quarter-number">1</span></div>
+               <div class="label">CUARTO</div>
+            </div>
+         </div>
+         <div class="clear"></div>
+         <div class="second-row">
+            <div id="away-score" class="box">
+               <h4 class="label">C.D.Epsilon Sevilla</h4>
+               <div class="number"><span id="away-team-score" class="score">0</span></div>
+               <div class="clear"></div>
+               <div class="timeouts">
+                  <div class="number"><span id="away-team-timeouts">4</span></div>
+                  <div id="away-timeouts-label" class="label">TM</div>
+                  <div id="gameclock-sec" class="number">00</div>
+               </div>
+            </div>
+            <div id="down" class="box"></div>
+            <div id="home-score" class="box">
+               <h4 class="label">Visitante</h4>
+               <div class="number"><span id="home-team-score" class="score">0</span></div>
+               <div class="clear"></div>
+               <div class="timeouts">
+                  <div class="number"><span id="home-team-timeouts">4</span></div>
+                  <div id="home-timeouts-label" class="label">TM</div>
+               </div>
+            </div>
+            <div class="clear"></div>
+         </div>
+      </div>
+   </body>
+</html>

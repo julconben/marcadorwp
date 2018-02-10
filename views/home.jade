@@ -10,44 +10,43 @@ html
     body
         #container
             .first-row
-                #away-score.box
-                    h4.label= "C.D.Epsilon Sevilla"
+                #home-score.box
                     .number
-                        span#away-team-score.score= "0"
-                    .clear
-                    .timeouts
-                        .number
-                            span#away-team-timeouts= "4"
-                        .label#away-timeouts-label= "TM" 
-                    
+                        span#home-team-score.score= "0"
                 #timer.box
                     .inner-box
                         .number#gameclock-min= "8"
                         span= ":"
                         .number#gameclock-sec= "00"
-
-                #home-score.box
-                    h4.label= "Visitante"
+                #away-score.box
                     .number
-                        span#home-team-score.score= "0"
-                    .clear
-                    .timeouts
-                        .number
-                            span#home-team-timeouts= "4"
-                        .label#home-timeouts-label= "TM"
+                        span#away-team-score.score= "0"
 
             .clear
 
             .second-row
-                #playclock.box
-                    .number
-                        span#playclock-timer= "20"
-                    .label= "Expulsion"
-                #down.box
+                #home-score.box
+                    h4.label= "C.D.Epsilon Sevilla"
+                    
+                    .clear
+                    .timeouts
+                        .number
+                            span#home-team-timeouts= "4"
+                        .label#home-timeouts-label= "T.M." 
+   
+
                 #quarter.box
                     .number
                         span#quarter-number= "1"
                     .label= "CUARTO"
+                #away-score.box
+                    h4.label= "Visitante"
+                    
+                    .clear
+                    .timeouts
+                        .number
+                            span#away-team-timeouts= "4"
+                        .label#away-timeouts-label= "T.M."
                 .clear
             
                 

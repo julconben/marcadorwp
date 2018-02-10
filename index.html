@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scoreboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="public/jquery.min.js"></script>
+    <script src="public/script.js"></script>
+    <link href="public/style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div id="container">
+      <div class="first-row">
+        <div class="box" id="playclock">                 </div>
+        <div class="box" id="timer">
+          <div class="inner-box">
+            <div class="number" id="gameclock-min">8</div><span>:</span>
+            <div class="number" id="gameclock-sec">00</div>
+          </div>
+        </div>
+        <div class="box" id="quarter">
+          <div class="number"><span id="quarter-number">1</span></div>
+          <div class="label">CUARTO</div>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div class="second-row">
+        <div class="box" id="away-score">
+          <h4 class="label">C.D.Epsilon Sevilla</h4>
+          <div class="number"><span class="score" id="away-team-score">0</span></div>
+          <div class="clear"></div>
+          <div class="timeouts">
+            <div class="number"><span id="away-team-timeouts">4</span></div>
+            <div class="label" id="away-timeouts-label">TM</div>
+            <div class="number" id="gameclock-sec">00</div>
+          </div>
+        </div>
+        <div class="box" id="down"></div>
+        <div class="box" id="home-score">
+          <h4 class="label">Visitante</h4>
+          <div class="number"><span class="score" id="home-team-score">0</span></div>
+          <div class="clear"></div>
+          <div class="timeouts">
+            <div class="number"><span id="home-team-timeouts">4</span></div>
+            <div class="label" id="home-timeouts-label">TM</div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </body>
+</html>
